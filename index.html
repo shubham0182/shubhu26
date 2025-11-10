@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Compact Message for Jyoti</title>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="flash-overlay" id="flash-overlay"></div>
+
+    <div id="password-form">
+        <h2>🔒 Message Access</h2>
+        <div id="desktop-suggestion">
+            For the smoothest animation experience, please consider setting your browser to: 
+            <strong>"Desktop Site" Mode</strong> (via the browser menu).
+        </div>
+        <input type="password" id="password" placeholder="Enter Secret Password" autofocus>
+        <button onclick="checkPassword()">Unlock</button>
+        <div id="error-message" class="error-message"></div>
+    </div>
+
+    <div id="message-container" onclick="revealSurprise()">
+        <div class="animated-message">
+            Love ❤️
+        </div>
+        <div class="animated-message">
+            Get Well Soon!
+        </div>
+        
+        <div id="flower-name-reveal">
+            JYOTI
+        </div>
+
+        <p class="loving-text">
+            Thinking of you and wishing you a speedy recovery.
+            <br>
+            <br>
+            <span style="font-weight: 600; color: var(--color-primary); font-size: 0.9em;">(Tap for a flower surprise!)</span>
+        </p>
+        
+        <div id="shubham-signature">
+            Your junior 😁 Mr. Shubham
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

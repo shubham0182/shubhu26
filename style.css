@@ -1,0 +1,118 @@
+/* --- 1. Global & Base Styles --- */
+:root {
+    --color-primary: #e91e63;
+    --color-secondary: #ffcc80;
+    --color-text: #2c3e50;
+    --color-background: #f7f3f4;
+    --color-card-bg: rgba(255, 255, 255, 0.7); 
+    --shadow-primary: 0 8px 30px rgba(233, 30, 99, 0.1); 
+    --transition-time: 0.5s;
+    --border-radius-card: 20px;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    background-color: var(--color-background);
+    text-align: center;
+    overflow: hidden;
+    position: relative; 
+    color: var(--color-text);
+    transition: background-color 0.1s ease-out; 
+}
+
+/* --- 2. Card & Form Styling (Frosted Glass Effect) --- */
+#password-form, #message-container {
+    max-width: 320px; 
+    padding: 30px; 
+    border-radius: var(--border-radius-card); 
+    box-shadow: var(--shadow-primary); 
+    background: var(--color-card-bg);
+    border: 1px solid rgba(255, 255, 255, 0.4); 
+    backdrop-filter: blur(10px); 
+    -webkit-backdrop-filter: blur(10px); 
+    width: 90%;
+    transition: all var(--transition-time) ease, background 0.1s ease-out;
+    z-index: 10;
+}
+
+/* Desktop Mode Suggestion Styling */
+#desktop-suggestion {
+    background-color: rgba(255, 255, 255, 0.6);
+    border-radius: 10px;
+    padding: 10px 15px;
+    margin-bottom: 25px;
+    border: 1px dashed var(--color-primary);
+    font-size: 0.85em;
+    color: var(--color-text);
+    line-height: 1.4;
+}
+#desktop-suggestion strong {
+    color: var(--color-primary);
+    font-weight: 700;
+    display: block;
+    margin-top: 5px;
+}
+
+/* New class for the 10-second capture mode */
+.capture-mode {
+    background-color: rgba(0, 0, 0, 0.5) !important; 
+    box-shadow: 0 0 50px rgba(255, 255, 255, 0.8) !important; 
+}
+
+/* Flash overlay */
+.flash-overlay {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-color: white;
+    opacity: 0;
+    z-index: 100;
+    pointer-events: none;
+}
+
+#message-container { display: none; opacity: 0; cursor: pointer; }
+h2 { color: var(--color-primary); margin-bottom: 20px; font-weight: 600; font-size: 1.3em; } 
+input[type="password"] { padding: 14px; margin: 10px 0; border-radius: 10px; border: 1px solid #ddd; width: 100%; box-sizing: border-box; font-size: 16px; text-align: center; background-color: #fff; transition: border-color 0.3s ease, box-shadow 0.3s ease; }
+input[type="password"]:focus { border-color: var(--color-primary); box-shadow: 0 0 0 3px rgba(233, 30, 99, 0.25); outline: none; }
+button { padding: 13px 20px; background-color: var(--color-primary); color: white; border: none; border-radius: 10px; font-weight: 700; letter-spacing: 0.8px; text-transform: uppercase; width: 100%; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); transition: transform 0.2s ease, background-color 0.3s ease, box-shadow 0.3s ease; }
+button:hover { background-color: #c2185b; transform: translateY(-3px); box-shadow: 0 6px 18px rgba(0, 0, 0, 0.3); }
+.error-message { color: var(--color-primary); margin-top: 15px; font-weight: 700; animation: shake 0.5s; }
+@keyframes shake { 0%, 100% {transform: translateX(0);} 10%, 30%, 50%, 70%, 90% {transform: translateX(-5px);} 20%, 40%, 60%, 80% {transform: translateX(5px);} }
+
+/* --- 3. Message Display Styles --- */
+@keyframes gentlePulse { 0% { transform: scale(1); opacity: 0.9; } 50% { transform: scale(1.03); opacity: 1; } 100% { transform: scale(1); opacity: 0.9; } }
+.animated-message { font-family: 'Dancing Script', cursive; font-size: 3.8em; color: var(--color-primary); text-shadow: 3px 3px 0px var(--color-secondary); animation: gentlePulse 4s infinite ease-in-out; margin-bottom: 10px; line-height: 1; }
+
+#flower-name-reveal { 
+    font-family: 'Dancing Script', cursive; 
+    font-size: 4em; 
+    font-weight: 700; 
+    background: linear-gradient(145deg, #ff9999 30%, var(--color-primary) 100%); 
+    
+    background-clip: text; 
+    -webkit-background-clip: text; 
+    
+    -webkit-text-fill-color: transparent; 
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.7); 
+    margin: 25px 0 30px; 
+    opacity: 0; 
+    transform: scale(0.9); 
+}
+
+#flower-name-reveal.revealed { opacity: 1; transform: scale(1); transition: opacity 1.8s ease-out, transform 1.8s ease-out;}
+.loving-text { font-size: 1em; color: var(--color-text); line-height: 1.6; margin-top: 15px;}
+#shubham-signature { font-family: 'Poppins', sans-serif; font-size: 0.9em; font-weight: 400; color: var(--color-text); margin-top: 30px; text-align: right; width: 100%; opacity: 0; transition: opacity 3s ease;}
+
+/* --- 4. Rose Petal Animation --- */
+.rose-petal {
+    position: absolute; top: -10%; width: 20px; height: 25px; background-color: #ff8080;
+    border-radius: 60% 40% 70% 30% / 60% 60% 40% 40%; opacity: 0; pointer-events: none; z-index: 1; box-shadow: 0 0 5px rgba(0,0,0,0.1);
+}
+@keyframes fallAndWobble {
+    0% { transform: translate(0, 0) rotateZ(0deg) rotateX(0deg); opacity: 0.8; }
+    100% { transform: translate(calc(var(--rand-x) * 1vw), 100vh) rotateZ(calc(var(--rand-deg) * 1deg)) rotateX(calc(var(--rand-x-rot) * 1deg)); opacity: 0; }
+}
